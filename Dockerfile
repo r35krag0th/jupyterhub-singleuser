@@ -50,8 +50,8 @@ RUN apt-get update \
   build-essential \
   ca-certificates \
   dnsutils \
-  libcgraph6 \
-  libgvc6 \
+  graphviz \
+  graphviz-dev \
   iputils-ping \
   tini \
   # requirement for nbgitpuller
