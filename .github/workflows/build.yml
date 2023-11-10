@@ -4,6 +4,7 @@ on:
     branches: ["main"]
   release:
     types: ["published"]
+  pull_request:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -46,13 +47,14 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          logout: false
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: |
             ${{ steps.meta.outputs.labels }}
             git.commit.sha=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
             git.repository_url=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.source'] }}
+          push: true
