@@ -62,7 +62,7 @@ fqdn==1.5.1
     # via jsonschema
 greenlet==3.0.0
     # via sqlalchemy
-idna==3.4
+idna==3.7
     # via
     #   anyio
     #   jsonschema
