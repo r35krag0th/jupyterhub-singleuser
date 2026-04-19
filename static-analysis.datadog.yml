@@ -3,5 +3,5 @@ rulesets:
       rules:
         only-use-allowed-registry:
           arguments:
-            registries: registry.r35.dev,registry.r35.network
+            registries: registry.r35.dev,harbor.r35.dev
 
